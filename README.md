@@ -18,6 +18,14 @@ Bu shablon Frontend ishlab chiqishni tezlashtirish va zamonaviy, optimallashtiri
 
 Ushbu shablon bilan ish boshlash uchun quyidagi buyruqdan foydalaning:
 
+### https
+
 ```bash
-npx create-next-app@latest jst-nextjs --example "https://gitlab.com/kabraliev2005/jst-nextjs"
+npx create-next-app@latest jst-nextjs --example "https://github.com/Muhiddin0/jst-nextjs.git"
+```
+
+### SSH
+
+```bash
+npx create-next-app@latest jst-nextjs --example "git@github.com:Muhiddin0/jst-nextjs.git"
 ```

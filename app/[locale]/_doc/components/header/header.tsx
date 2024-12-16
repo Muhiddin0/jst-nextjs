@@ -10,7 +10,7 @@ export function Header() {
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <Code className="h-6 w-6" />
-            <span className="hidden font-bold sm:inline-block">TechDocs</span>
+            <span className="hidden font-bold sm:inline-block">MK</span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link

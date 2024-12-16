@@ -137,7 +137,7 @@ export default function DocsPage() {
               <CardContent>
                 <CodeHighLight lang="js">
                   npx create-next-app@latest jst-nextjs --example
-                  &quot;https://gitlab.com/kabraliev2005/jst-nextjs&quot;
+                  &quot;https://github.com/Muhiddin0/jst-nextjs.git&quot;
                 </CodeHighLight>
               </CardContent>
             </Card>

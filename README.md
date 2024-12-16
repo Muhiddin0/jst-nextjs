@@ -21,11 +21,11 @@ Ushbu shablon bilan ish boshlash uchun quyidagi buyruqdan foydalaning:
 ### https
 
 ```bash
-npx create-next-app@latest jst-nextjs --example "https://github.com/Muhiddin0/jst-nextjs.git"
+npx create-next-app@latest seezntv --example "https://github.com/Muhiddin0/jst-nextjs/"
 ```
 
 ### SSH
 
 ```bash
-npx create-next-app@latest jst-nextjs --example "git@github.com:Muhiddin0/jst-nextjs.git"
+npx create-next-app@latest jst-nextjs --example "git@github.com:Muhiddin0/jst-nextjs/"
 ```

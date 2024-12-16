@@ -68,13 +68,13 @@ export default function DocsPage() {
   ];
 
   return (
-    <div className=" bg-gradient-to-b from-background to-background/80">
+    <div className="bg-gradient-to-b from-background to-background/80">
       <div className="relative">
-        <div className="flex items-center justify-center absolute inset-0 bg-gradient-to-b from-violet-500/30 via-purple-500/20 to-background blur-3xl"></div>
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-violet-500/30 via-purple-500/20 to-background blur-3xl"></div>
         <div className="container relative">
-          <div className="flex relative min-h-screen flex-col justify-center items-center text-center">
+          <div className="relative flex min-h-screen flex-col items-center justify-center text-center">
             <Image
-              className="mix-blend-lighten absolute top-0 left-0 w-full h-full object-contain z-[0]"
+              className="absolute left-0 top-0 z-[0] h-full w-full object-contain mix-blend-lighten"
               src={AnimationBgImage}
               alt="Animation bg image"
             />
@@ -82,7 +82,7 @@ export default function DocsPage() {
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
               JST-NEXTJS
             </h1>
-            <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-xl">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-muted-foreground">
               Frontend ishlab chiqishni tezlashtirish va zamonaviy,
               optimallashtirilgan dasturiy yechimlarni yaratish uchun shablon
             </p>
@@ -103,7 +103,7 @@ export default function DocsPage() {
               <Card key={index}>
                 <CardHeader>
                   <CardTitle>
-                    <div className="flex gap-3 items-center">
+                    <div className="flex items-center gap-3">
                       <service.icon
                         size={24}
                         className="h-5 w-5 text-violet-500"
@@ -128,17 +128,16 @@ export default function DocsPage() {
             <Card>
               <CardHeader>
                 <CardTitle>
-                  <div className="flex gap-3 items-center">
+                  <div className="flex items-center gap-3">
                     <Layout className="h-5 w-5 text-violet-500" />
                     Foydalanishni boshlash
                   </div>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CodeHighLight lang="js">
-                  npx create-next-app@latest jst-nextjs --example
-                  &quot;https://github.com/Muhiddin0/jst-nextjs.git&quot;
-                </CodeHighLight>
+                <CodeHighLight lang="js">{`
+                  npx create-next-app@latest seezntv --example "https://github.com/Muhiddin0/jst-nextjs/"
+                `}</CodeHighLight>
               </CardContent>
             </Card>
           </div>

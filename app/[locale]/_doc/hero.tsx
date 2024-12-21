@@ -72,7 +72,7 @@ export default function DocsPage() {
       <div className="relative">
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-violet-500/30 via-purple-500/20 to-background blur-3xl"></div>
         <div className="container relative">
-          <div className="relative flex min-h-screen flex-col items-center justify-center text-center">
+          <div className="relative flex min-h-screen flex-col items-center justify-center">
             <Image
               className="absolute left-0 top-0 z-[0] h-full w-full object-contain mix-blend-lighten"
               src={AnimationBgImage}
@@ -124,7 +124,7 @@ export default function DocsPage() {
             ))}
           </div>
 
-          <div className="mt-16">
+          <div className="mb-12 mt-16">
             <Card>
               <CardHeader>
                 <CardTitle>
@@ -135,9 +135,11 @@ export default function DocsPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CodeHighLight lang="js">{`
-                  npx create-next-app@latest seezntv --example "https://github.com/Muhiddin0/jst-nextjs/"
-                `}</CodeHighLight>
+                <CodeHighLight lang="js">
+                  {
+                    'npx create-next-app@latest jst-nextjs --example "https://github.com/Muhiddin0/jst-nextjs/"'
+                  }
+                </CodeHighLight>
               </CardContent>
             </Card>
           </div>

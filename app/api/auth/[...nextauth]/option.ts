@@ -1,61 +1,49 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { Confirm, RefreshAccessToken } from "@/services/requests/auth";
 import { AuthSession } from "../next-auth";
-import axios from "axios";
 
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
       credentials: {
-        code: {},
-        phone: {},
-        lang: {},
+        // * Login maydonlarini shu yerga yozish kerak
+        // * Misol uchun
+        //     phone:{}
+        //     password:{}
+        //     code:{}
       },
 
       async authorize(credentials) {
-        const phone = credentials?.phone as string;
-        const code = credentials?.code as string;
-        const lang = credentials?.lang as Lang;
+        // * login maydonidagi ma'lumotlarni olish
+        // * Misol uchun
+        //     credentials.phone
+        //     credentials.password
+        //     credentials.code
 
-        // Avval Confirm API orqali tasdiqlash tokenlarini olish
-        let { data } = await Confirm<{
-          detail: string;
-          token: {
-            refresh: string;
-            access: string;
-          };
-        }>(phone, code, lang);
+        // =======================================================
+        // *** auth uchun requestlarni shu yerga yozish kerak ***
+        // =======================================================
 
-        const { access } = data?.token;
-
-        // Foydalanuvchi haqida ma'lumot olish uchun API chaqiruvi
-        const { data: user } = await axios.get(
-          "https://article.jscorp.uz/auth/me/",
-          {
-            headers: {
-              Authorization: `Bearer ${access}`,
-            },
-          }
-        );
-
-        if (data) {
-          // Foydalanuvchi ob'ektini qaytarish
-          return {
-            id: phone,
-            access: data.token.access,
-            refresh: data.token.refresh,
-            first_name: user.first_name,
-            last_name: user.last_name,
-            phone: user.phone,
-            lang: lang,
-            accessTokenExpires: Date.now() + 5 * 60 * 1000,
-          };
-        } else {
-          console.log(data);
-          throw new Error(JSON.stringify({ errors: false, status: false }));
-        }
+        // * chiquvchi misol
+        // * Agar responsega o'zgartirish kiritmoqchi bo'lsangiz
+        // * next-auth.d.ts fayilidagi MyUser interfaceni o'zgartiring
+        // * keyin pastdagi returni ham shunga moslang
+        return {
+          access: "",
+          accessTokenExpires: Date.now() + 5 * 60 * 1000,
+          refresh: "",
+          avatar: "",
+          id: "",
+          lang: "uz",
+          role: "user",
+          email: "",
+          first_name: "",
+          image: "",
+          last_name: "",
+          name: "",
+          phone: "",
+        };
       },
     }),
   ],
@@ -96,7 +84,21 @@ export const authOptions: NextAuthOptions = {
       }
 
       // Token yangilash funksiyasini chaqirish
-      return await RefreshAccessToken(token);
+      return {
+        access: "",
+        accessTokenExpires: Date.now() + 5 * 60 * 1000,
+        refresh: "",
+        avatar: "",
+        id: "",
+        lang: "uz",
+        role: "user",
+        email: "",
+        first_name: "",
+        image: "",
+        last_name: "",
+        name: "",
+        phone: "",
+      };
     },
 
     async session({ session, token }) {

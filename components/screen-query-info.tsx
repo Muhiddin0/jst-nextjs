@@ -10,10 +10,12 @@ interface Props {
 }
 
 export default function ScreenQueryInfo({ position, size }: Props) {
+  if (process.env.NODE_ENV === "production") return null;
+
   return (
     <div
       className={cn(
-        "fixed z-[10000] flex gap-2 bg-black p-3 text-white w-auto",
+        "fixed z-[10000] flex w-auto gap-2 bg-black p-3 text-white",
         position
           ? {
               "left-0": position.x === "left",
@@ -30,7 +32,7 @@ export default function ScreenQueryInfo({ position, size }: Props) {
           "[&>*]:text-lg": size === "lg",
           "[&>*]:text-xl": size === "xl",
           "[&>*]:text-2xl": size === "2xl",
-        }
+        },
       )}
     >
       <span>screen:</span>

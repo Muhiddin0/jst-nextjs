@@ -1,18 +1,20 @@
 import NextAuth from "next-auth";
 import { string } from "zod";
 
-export interface User {
+export interface MyUser {
   refresh: string;
   access: string;
   phone?: string;
   first_name?: string;
   last_name?: string;
-  accessTokenExpires: number; // Access token muddati
+  accessTokenExpires: number;
+  role: Role;
+  avatar: string | null;
+  lang: Lang;
+  id: any;
 }
 
-export interface AuthSession extends User {
-  lang: string;
-}
+export interface AuthSession extends MyUser {}
 
 declare module "next-auth" {
   interface User extends AuthSession {}

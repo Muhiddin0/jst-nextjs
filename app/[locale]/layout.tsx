@@ -5,7 +5,6 @@ import "../globals.css";
 import { getMessages } from "next-intl/server";
 
 import { NextIntlClientProvider } from "next-intl";
-import ThemeToggle from "@/components/theme/theme";
 import ThemeProvider from "@/components/theme/theme-provider";
 import ReactQueryProvider from "./ReactQueryProvider";
 import AuthProvider from "./AuthProvider";
@@ -45,12 +44,10 @@ export default async function RootLayout({
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <ReactQueryProvider>
                 {children}
-                {process.env.NODE_ENV === "development" && (
-                  <ScreenQueryInfo
-                    size="lg"
-                    position={{ x: "left", y: "bottom" }}
-                  />
-                )}
+                <ScreenQueryInfo
+                  size="lg"
+                  position={{ x: "left", y: "bottom" }}
+                />
               </ReactQueryProvider>
             </ThemeProvider>
           </NextIntlClientProvider>

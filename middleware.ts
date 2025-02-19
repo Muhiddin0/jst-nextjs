@@ -3,7 +3,6 @@ import createIntlMiddleware from "next-intl/middleware";
 import { NextRequest } from "next/server";
 import { localeConfig } from "./i18n/routing";
 
-const defaultLocale = "en"; // Default til
 const publicRoutes = /^(\/[a-z]{2})?(\/auth\/login)?$/; // Public routelar
 
 const intlMiddleware = createIntlMiddleware(localeConfig);
@@ -17,7 +16,7 @@ const authMiddleware = withAuth(
       authorized: ({ token }) => token != null, // Faqat login qilganlar kirishi mumkin
     },
     pages: {
-      signIn: `/${defaultLocale}/auth/login`, // Foydalanuvchi login qilmagan bo‘lsa, shu sahifaga yo‘naltiriladi
+      signIn: `/${localeConfig.defaultLocale}/auth/login`, // Foydalanuvchi login qilmagan bo‘lsa, shu sahifaga yo‘naltiriladi
     },
   },
 );

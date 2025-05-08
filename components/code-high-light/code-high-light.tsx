@@ -10,11 +10,11 @@ type Props = {
 
 function CodeHighLight({ children, lang }: Props) {
   return (
-    <div className="relative bg-code p-3 rounded-md">
-      <div className="flex gap-1 mb-1">
-        <span className="size-3 block rounded-full bg-red-500"></span>
-        <span className="size-3 block rounded-full bg-yellow-500"></span>
-        <span className="size-3 block rounded-full bg-green-500"></span>
+    <div className="relative rounded-md bg-code p-3">
+      <div className="mb-1 flex gap-1">
+        <span className="block size-3 rounded-full bg-red-500"></span>
+        <span className="block size-3 rounded-full bg-yellow-500"></span>
+        <span className="block size-3 rounded-full bg-green-500"></span>
       </div>
       <SyntaxHighlighter language={lang} style={atomOneDark}>
         {children as string}

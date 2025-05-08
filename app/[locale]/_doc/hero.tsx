@@ -86,6 +86,27 @@ export default function DocsPage() {
               Frontend ishlab chiqishni tezlashtirish va zamonaviy,
               optimallashtirilgan dasturiy yechimlarni yaratish uchun shablon
             </p>
+
+            <div className="relative z-30 mb-12 mt-16">
+              <Card>
+                <CardHeader>
+                  <CardTitle>
+                    <div className="flex items-center gap-3">
+                      <Layout className="h-5 w-5 text-violet-500" />
+                      Foydalanishni boshlash
+                    </div>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CodeHighLight lang="js">
+                    {
+                      'npx create-next-app@latest jst-nextjs --example "https://github.com/Muhiddin0/jst-nextjs/"'
+                    }
+                  </CodeHighLight>
+                </CardContent>
+              </Card>
+            </div>
+
             <div className="relative z-10 mt-10 flex items-center justify-center gap-4">
               <Button>
                 Boshlash
@@ -98,7 +119,7 @@ export default function DocsPage() {
             </div>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:max-w-none lg:grid-cols-3">
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 pb-10 sm:mt-20 lg:max-w-none lg:grid-cols-3">
             {services.map((service, index) => (
               <Card key={index}>
                 <CardHeader>
@@ -122,26 +143,6 @@ export default function DocsPage() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          <div className="mb-12 mt-16">
-            <Card>
-              <CardHeader>
-                <CardTitle>
-                  <div className="flex items-center gap-3">
-                    <Layout className="h-5 w-5 text-violet-500" />
-                    Foydalanishni boshlash
-                  </div>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CodeHighLight lang="js">
-                  {
-                    'npx create-next-app@latest jst-nextjs --example "https://github.com/Muhiddin0/jst-nextjs/"'
-                  }
-                </CodeHighLight>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>

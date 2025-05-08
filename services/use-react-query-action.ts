@@ -2,9 +2,9 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import UseAxiosAuth from "@/services/hooks/use-axios-auth";
 import { queryGenerator } from "@/lib/query-generator";
 import { useDebounces } from "@/hooks/use-debounces";
+import instanceAuth from "./instance";
 
 const useReactQueryAction = <T>({
   url,
@@ -18,7 +18,6 @@ const useReactQueryAction = <T>({
   enabled?: boolean;
 }) => {
   let params: any = useParams();
-  const axiosAuth = UseAxiosAuth();
 
   Object.keys(params).map((key) => {
     url = url.replace(`[${key}]`, params[key]);
@@ -36,7 +35,7 @@ const useReactQueryAction = <T>({
     queryKey: [debouncedUrl],
     queryFn: async () => {
       try {
-        let { data } = await axiosAuth.get(debouncedUrl);
+        let { data } = await instanceAuth.get(debouncedUrl);
         return data;
       } catch (error) {
         return null;
